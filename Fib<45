@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Fibbonacci {
+
+	public static int x = 1;
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner (System.in);
+		int y = in.nextInt();
+		int previousMin = 1;
+		int previousMax = 1;
+		
+		System.out.println(previousMin);
+		System.out.println(previousMax);
+		
+		for (int z = 1; z <= y; z++) {
+			int fib = previousMin + previousMax;
+			previousMin = previousMax;
+			previousMax = fib;
+			System.out.println(fib);
+				
+		}	
+		in.close()
+		
+	}
