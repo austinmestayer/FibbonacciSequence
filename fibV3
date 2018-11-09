@@ -1,0 +1,56 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+class Fibbonacci{
+	
+public static void main(String[] args){
+	 	
+		Scanner in = new Scanner (System.in);
+		long y = in.nextLong();
+		y = y - 2;
+     	final long start = System.nanoTime();
+     	in.close();
+     	
+        if (y > 46) {
+        
+        	longCalculationfib(44);
+        	
+        	for (int i = 45; i <= y; i++) {
+            System.out.println(theBigFib(i));
+        	}
+        }
+        
+        if (y <= 46) {
+        	longCalculationfib(y);
+        }
+        final long end = System.nanoTime();
+        System.out.println("This program took " + ((end - start) / 1000000000) + " second(s) to run.");
+    }
+public static void longCalculationfib (long y) {
+	int previousMin = 1;
+	int previousMax = 1;
+	
+	System.out.println(previousMin);
+	System.out.println(previousMax);
+	
+	for (int z = 1; z <= y; z++) {
+		int fib = previousMin + previousMax;
+		previousMin = previousMax;
+		previousMax = fib;
+		System.out.println(fib);
+			
+	}	
+}
+public static BigInteger theBigFib(int b){
+        BigInteger[] a = new BigInteger[100000];
+        a[43] = BigInteger.valueOf(1134903170);
+        a[44] = BigInteger.valueOf(1836311903);
+        
+        a[b] = theBigFib(b - 1).add(theBigFib(b - 2));
+        return a[b];
+    }
+
+
+}
+
+
