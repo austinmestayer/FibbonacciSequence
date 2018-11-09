@@ -1,21 +1,20 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 
 class Fibbonacci{
 	
-public static void main(String[] args) throws FileNotFoundException {
+public static void main(String[] args){
 	 	
 		Scanner in = new Scanner (System.in);
 		long y = in.nextLong();
-        long yStorage = 44;
+		y = y - 2;
      	final long start = System.nanoTime();
      	in.close();
      	
         if (y > 44) {
         
-        	longCalculationfib(yStorage);
+        	longCalculationfib(44);
         	
         	for (int i = 45; i <= y; i++) {
             System.out.println(theBigFib(i));
@@ -44,38 +43,14 @@ public static void longCalculationfib (long y) {
 			
 	}	
 }
-public static BigInteger theBigFib(int b) throws FileNotFoundException {
+public static BigInteger theBigFib(int b){
         BigInteger[] a = new BigInteger[100000];
-        a = arrayfiller();
+        a[43] = BigInteger.valueOf(1134903170);
+        a[44] = BigInteger.valueOf(1836311903);
         
-        if(a[b] != null) {
-            return a[b];
-        }
-
         a[b] = theBigFib(b - 1).add(theBigFib(b - 2));
         return a[b];
     }
 
-public static BigInteger[] arrayfiller () throws FileNotFoundException {
-	
-	File file = new File ("C:\\Users\\gshamburger\\Desktop\\fib.txt");
-	
-	BigInteger[] a = new BigInteger[100000];
-	int[] c = new int[45];
-	Scanner fibtext = new Scanner (file);
-	int x = 0;
-	String values = null;
-	long parsedvalue;
-	
-	while (fibtext.hasNextLine()) {
-		values = fibtext.nextLine();
-		parsedvalue = Long.parseLong(values);
-		c[x] = (int) parsedvalue;
-		System.out.println(a[x]);
-		x++;
-		}
-	
-	return a;
-	
-}
+
 }
